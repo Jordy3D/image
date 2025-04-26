@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image tools</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/bane.png" type="image/png">
+    
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/index.js"></script>
+</head>
+
+<body>
+    <main class="index-main">
+        <div class="header">
+            <img src="../images/bane.png" alt="Bane Logo">
+            <h1>image tools</h1>
+        </div>
+        
+        <!-- Tools will be loaded dynamically here -->
+        <div id="tools-container" class="tools-container"></div>
+        
+        <div class="footer">
+            <div class="toggle-container" data-tooltip="Toggle dark mode">
+                <label>Dark Mode</label>
+                <div class="toggle">
+                    <input type="checkbox" id="darkMode">
+                    <label for="darkMode"></label>
+                </div>
+            </div>
+            <a href="https://jordy3d.github.io/tree/" class="tree-link" target="_blank" data-tooltip="Visit Bane's tree">
+                tree
+            </a>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+[
+    {
+        "id": "chroma",
+        "name": "chroma",
+        "description": "recolour images with target and destination colours",
+        "icon": "images/chroma.png",
+        "url": "chroma.html"
+    },
+    {
+        "id": "tile",
+        "name": "tile",
+        "description": "check the tileability of an image",
+        "icon": "images/tile.png",
+        "url": "tile.html"
+    },
+    {
+        "id": "resize",
+        "name": "resize",
+        "description": "resize an image live",
+        "icon": "images/resize.png",
+        "url": "resize.html"
+    }
+]

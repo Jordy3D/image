@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/tile.png" type="image/png">
+    
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/controls.js"></script>
+    <script defer src="js/tile.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="controls">
+            <div class="top-container">
+                <a href="index.html" class="bane-logo">
+                    <img src="../images/bane.png" alt="Bane Logo">
+                </a>
+                <div class="file-input-container" data-tooltip="Upload an image to tile">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <label for="imageInput">
+                        <!-- Updated to use image icon -->
+                        <img src="images/icons/image.png" alt="Choose Image" class="icon">
+                        <span id="fileNameDisplay">Choose Image</span>
+                    </label>
+                </div>
+            </div>
+            <div class="toggles">
+                <div class="toggle-container" data-tooltip="Toggle whether the image is pixelated or not">
+                    <label>Pixelated</label>
+                    <div class="toggle">
+                        <input type="checkbox" id="pixelated">
+                        <label for="pixelated"></label>
+                    </div>
+                </div>
+                <div class="toggle-container" data-tooltip="Toggle dark mode">
+                    <label>Dark Mode</label>
+                    <div class="toggle">
+                        <input type="checkbox" id="darkMode">
+                        <label for="darkMode"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-container-container">
+                <div class="slider-container" data-tooltip="Adjust the tile size">
+                    <label for="tileSize">Tile Size</label>
+                    <input type="range" id="tileSize" min="10" max="2000" value="200">
+                </div>
+            </div>
+            <div class="hidebar" id="hidebar" data-tooltip="Hide Controls">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+        <div id="previewContainer"></div>
+        <div class="context-menu">
+            <div class="menu-item" id="pasteImage">Paste Image</div>
+        </div>
+    </main>
+</body>
+
+</html>
