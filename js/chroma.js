@@ -298,13 +298,13 @@ function recolourImage() {
         ctx.putImageData(imageData, 0, 0);
 
         const originalImageWrapper = document.createElement('div');
-        originalImageWrapper.classList.add('image-wrapper', 'original');
+        originalImageWrapper.classList.add('image-wrapper', 'original', 'source-image-wrapper');
         const originalImage = new Image();
         originalImage.src = currentImage;
         originalImageWrapper.appendChild(originalImage);
 
         const recolouredImageWrapper = document.createElement('div');
-        recolouredImageWrapper.classList.add('image-wrapper', 'recoloured');
+        recolouredImageWrapper.classList.add('image-wrapper', 'recoloured', 'output-image-wrapper');
         const recolouredImage = new Image();
         recolouredImage.src = canvas.toDataURL();
         recolouredImageWrapper.appendChild(recolouredImage);
@@ -312,6 +312,11 @@ function recolourImage() {
         previewContainer.innerHTML = '';
         previewContainer.appendChild(originalImageWrapper);
         previewContainer.appendChild(recolouredImageWrapper);
+        
+        // Reattach context menus to the new images
+        if (typeof reattachImageContextMenus === 'function') {
+            reattachImageContextMenus();
+        }
     };
 }
 

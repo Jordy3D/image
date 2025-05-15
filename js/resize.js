@@ -20,14 +20,14 @@ function updateImage() {
 
     // Create canvas for the original image on the left
     const originalImageWrapper = document.createElement('div');
-    originalImageWrapper.classList.add('image-wrapper', 'original');
+    originalImageWrapper.classList.add('image-wrapper', 'original', 'source-image-wrapper');
     const originalImage = new Image();
     originalImage.src = currentImage;
     originalImageWrapper.appendChild(originalImage);
 
     // Create canvas for the resized image on the right
     const resizedImageWrapper = document.createElement('div');
-    resizedImageWrapper.classList.add('image-wrapper', 'recoloured'); // Reuse the 'recoloured' class for styling
+    resizedImageWrapper.classList.add('image-wrapper', 'recoloured', 'output-image-wrapper'); // Reuse the 'recoloured' class for styling
     
     // Resized image will be created in resizeImage()
     
@@ -64,6 +64,11 @@ function updateImage() {
         
         // Resize the image with the initial dimensions
         resizeImage();
+        
+        // Reattach context menus to the new images
+        if (typeof reattachImageContextMenus === 'function') {
+            reattachImageContextMenus();
+        }
     };
 }
 

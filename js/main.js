@@ -14,13 +14,14 @@ function setupCommonEventListeners() {
     // Add listeners for files
     const imageInput = document.getElementById('imageInput');
     const fileInputContainer = document.querySelector('.file-input-container');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
     const previewContainer = document.getElementById('previewContainer');
 
     if (imageInput) {
         // Handle file input changes
         imageInput.addEventListener('change', handleImageSelection);
         
-        // Handle drag and drop
+        // Handle drag and drop on the container
         fileInputContainer.addEventListener('dragover', (e) => {
             e.preventDefault();
             fileInputContainer.classList.add('drag-over');
@@ -39,6 +40,28 @@ function setupCommonEventListeners() {
                 handleImageSelection(e);
             }
         });
+
+        // Also handle drag and drop specifically on the file name display button
+        if (fileNameDisplay) {
+            fileNameDisplay.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileInputContainer.classList.add('drag-over');
+            });
+            
+            fileNameDisplay.addEventListener('dragleave', () => {
+                fileInputContainer.classList.remove('drag-over');
+            });
+            
+            fileNameDisplay.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileInputContainer.classList.remove('drag-over');
+                
+                if (e.dataTransfer.files.length) {
+                    imageInput.files = e.dataTransfer.files;
+                    handleImageSelection({target: {files: e.dataTransfer.files}});
+                }
+            });
+        }
     }
     
     // Handle key presses for modifier keys
@@ -67,28 +90,12 @@ function setupCommonEventListeners() {
     // Handle paste from clipboard
     document.addEventListener('paste', handlePaste);
     
-    // Assign paste action to context menu
-    const pasteMenuItem = document.getElementById('pasteImage');
-    if (pasteMenuItem) {
-        pasteMenuItem.addEventListener('click', requestClipboardAccess);
-    }
-    
     // Set up context menu
-    fileInputContainer.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        
-        const contextMenu = document.querySelector('.context-menu');
-        contextMenu.style.display = 'block';
-        contextMenu.style.left = `${e.clientX}px`;
-        contextMenu.style.top = `${e.clientY}px`;
-    });
-    
-    document.addEventListener('click', (e) => {
-        const contextMenu = document.querySelector('.context-menu');
-        if (contextMenu && contextMenu.style.display === 'block') {
-            contextMenu.style.display = 'none';
-        }
-    });
+    if (typeof setupContextMenu === 'function') {
+        setupContextMenu();
+    } else if (typeof defineDefaultContextMenus === 'function') {
+        defineDefaultContextMenus();
+    }
     
     // Setup the dark mode toggle if it exists
     const darkModeToggle = document.getElementById('darkMode');
@@ -153,6 +160,11 @@ function setupCommonEventListeners() {
                 hidebar.dataset.tooltip = 'Hide Controls';
             }
         });
+    }
+    
+    // Initialize image wrappers with proper classes for context menus
+    if (typeof getOrCreateImageWrappers === 'function') {
+        getOrCreateImageWrappers();
     }
 }
 

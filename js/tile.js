@@ -27,6 +27,11 @@ function updateImage() {
 
     updateTileSize();
     updatePixelated();
+    
+    // Reattach context menus to the new images
+    if (typeof reattachImageContextMenus === 'function') {
+        reattachImageContextMenus();
+    }
 }
 
 // Function to handle image loading and setting dimensions
