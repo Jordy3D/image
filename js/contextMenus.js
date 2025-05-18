@@ -380,6 +380,9 @@ const commonMenuItems = {
             }
             
             if (base64Data) {
+                // Prepend "data:image/png;base64," to the base64 data
+                base64Data = `data:image/png;base64,${base64Data}`;
+
                 navigator.clipboard.writeText(base64Data)
                     .then(() => {
                         console.log('Base64 data copied to clipboard');
