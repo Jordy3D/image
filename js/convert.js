@@ -106,7 +106,9 @@ function convertImage() {
             // Calculate file size reduction
             const originalSize = calculateDataUrlSize(currentImage);
             const convertedSize = calculateDataUrlSize(convertedDataUrl);
+
             const sizeReduction = ((originalSize - convertedSize) / originalSize * 100).toFixed(1);
+            const reductionText = sizeReduction < 0 ? 'Increase' : 'Reduction';
             
             // Display file size information
             const sizeInfo = document.createElement('div');
@@ -114,7 +116,7 @@ function convertImage() {
             sizeInfo.innerHTML = `
                 <div>Original: ${formatFileSize(originalSize)}</div>
                 <div>Converted: ${formatFileSize(convertedSize)}</div>
-                <div>Reduction: ${sizeReduction}%</div>
+                <div>${reductionText}: ${Math.abs(sizeReduction)}%</div>
             `;
             convertedImageWrapper.appendChild(sizeInfo);
         }
