@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>convert</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/convert.png" type="image/png">
+    
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/contextMenus.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/controls.js"></script>
+    <script defer src="js/convert.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="controls">
+            <div class="top-container">
+                <a href="index.html" class="bane-logo">
+                    <img src="images/bane.png" alt="Bane Logo">
+                </a>
+                <div class="file-input-container" data-tooltip="Upload an image to convert">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <label for="imageInput">
+                        <img src="images/icons/image.png" alt="Choose Image" class="icon">
+                        <span id="fileNameDisplay">Choose Image</span>
+                    </label>
+                </div>
+            </div>
+            <div class="toggles">
+                <div class="toggle-container" data-tooltip="Toggle whether the image is pixelated or not">
+                    <label>Pixelated</label>
+                    <div class="toggle">
+                        <input type="checkbox" id="pixelated">
+                        <label for="pixelated"></label>
+                    </div>
+                </div>
+                <div class="toggle-container" data-tooltip="Toggle dark mode">
+                    <label>Dark Mode</label>
+                    <div class="toggle">
+                        <input type="checkbox" id="darkMode">
+                        <label for="darkMode"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-container-container">
+                <div class="slider-container" data-tooltip="Adjust the image zoom">
+                    <label for="imageSize">Image Zoom</label>
+                    <input type="range" id="imageSize" min="10" max="2000" value="200">
+                </div>
+            </div>
+            <div class="export-options">
+                <div class="select-container" data-tooltip="Choose the format to convert to">
+                    <label for="exportFormat">Format</label>
+                    <select id="exportFormat">
+                        <option value="image/png">PNG</option>
+                        <option value="image/jpeg">JPEG</option>
+                        <option value="image/webp">WEBP</option>
+                        <option value="image/gif">GIF</option>
+                    </select>
+                </div>
+                <div class="slider-container quality-slider" data-tooltip="Set the quality for lossy formats (JPEG, WEBP)">
+                    <label for="quality">Quality</label>
+                    <input type="range" id="quality" min="1" max="100" value="85">
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="downloadButton" class="icon-button" data-tooltip="Download the converted image">
+                    <img src="images/icons/download.png" alt="Download" class="icon">
+                    <span>Download</span>
+                </button>
+                <button id="copyDataUrlButton" class="icon-button" data-tooltip="Copy Data URL to clipboard">
+                    <img src="images/icons/copy.png" alt="Copy" class="icon">
+                    <span>Copy Data URL</span>
+                </button>
+            </div>
+            <div class="hidebar" id="hidebar" data-tooltip="Hide Controls">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+        <div id="previewContainer"></div>
+    </main>
+</body>
+
+</html>

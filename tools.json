@@ -19,5 +19,12 @@
         "description": "resize an image live",
         "icon": "images/resize.png",
         "url": "resize.html"
+    },
+    {
+        "id": "convert",
+        "name": "convert",
+        "description": "convert images to different formats",
+        "icon": "images/convert.png",
+        "url": "convert.html"
     }
 ]

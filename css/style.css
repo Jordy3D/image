@@ -590,6 +590,7 @@ input[type=file] {
   justify-content: center;
   padding: 8px 0;
   width: 100%;
+  gap: 10px;
 }
 
 .controls {
