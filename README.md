@@ -11,6 +11,7 @@ currently available tools:
 - **chroma** - recolour images by replacing specific colours with new ones
 - **tile** - check how well an image tiles/repeats for seamless patterns
 - **resize** - resize images with different algorithms and download the result
+- **convert** - convert images to different formats
 
 ## usage
 1. visit the tool page you need
@@ -32,6 +33,10 @@ each tool has specific features:
 ### resize
 - set specific dimensions with options to lock aspect ratio
 - choose between smooth (linear) and pixelated (point) scaling
+
+### convert
+- convert images to different formats
+- preview the converted image in real-time
 
 ## link
 Visit the project at [jordy3d.github.io/image](https://jordy3d.github.io/image)
